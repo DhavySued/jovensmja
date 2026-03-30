@@ -1,0 +1,27 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+
+# Variáveis de ambiente (chaves do Supabase, Google, etc.)
+.env
+.env.local
+.env.*.local
+
+# Cache do Vite
+.vite/
+node_modules/.vite/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
