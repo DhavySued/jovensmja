@@ -1,4 +1,4 @@
-import { Users, BarChart2, ChevronRight, Upload, Settings } from 'lucide-react'
+import { Users, BarChart2, ChevronRight, Upload, Settings, LogOut } from 'lucide-react'
 
 const navItems = [
   { id: 'cadastro',       label: 'Cadastro de Pessoas', icon: Users },
@@ -7,7 +7,7 @@ const navItems = [
   { id: 'configuracoes',  label: 'Configurações',        icon: Settings },
 ]
 
-export default function Sidebar({ activePage, onNavigate }) {
+export default function Sidebar({ activePage, onNavigate, onLogout }) {
   return (
     <aside style={{
       width: '240px',
@@ -97,8 +97,25 @@ export default function Sidebar({ activePage, onNavigate }) {
       </nav>
 
       {/* Footer */}
-      <div style={{ padding: '24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div style={{ fontSize: 11, color: 'rgba(240,240,255,0.3)', textAlign: 'center' }}>
+      <div style={{ padding: '16px 24px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <button
+          onClick={onLogout}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            padding: '9px 12px', borderRadius: 10, cursor: 'pointer',
+            fontSize: 13, fontFamily: 'Inter, sans-serif',
+            color: 'rgba(240,240,255,0.4)',
+            background: 'transparent',
+            border: '1px solid transparent',
+            width: '100%', transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,99,99,0.08)'; e.currentTarget.style.color = '#ff8fa3'; e.currentTarget.style.borderColor = 'rgba(255,99,99,0.2)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(240,240,255,0.4)'; e.currentTarget.style.borderColor = 'transparent' }}
+        >
+          <LogOut size={15} />
+          Sair
+        </button>
+        <div style={{ fontSize: 11, color: 'rgba(240,240,255,0.2)', textAlign: 'center' }}>
           v1.0 · Jovens MJA
         </div>
       </div>
